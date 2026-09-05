@@ -45,11 +45,13 @@ class Program
         Console.WriteLine($"\nThe average is: {average}");
 
         // Calculate the largest number of all the numbers in the list
-        int largestNumber = 0;
+        int largestNumber = numbers[0];
         foreach (int largest in numbers)
         {
             if (largest > largestNumber)
+            {
                 largestNumber = largest;
+            }
         }
         Console.WriteLine($"\nThe largest number is: {largestNumber}");
 
