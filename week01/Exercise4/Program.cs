@@ -43,20 +43,29 @@ class Program
         int count = numbers.Count;
         float average = (float)total / count;
         Console.WriteLine($"\nThe average is: {average}");
-    /*
-    # Calculate the lagest number of all the numbers in the list
-    max = -1
-    for number in numbers:
-        if number > max:
-            max = number
-    print(f'The largest number is: {max}')
 
-    # Calculate the smallest positive number of all the numbers in the list
-    smallest = 9999999999999999
-    for number in numbers:
-        if number > 0 and number < smallest:
-            smallest = number
-    print(f'The smallest positive number is: {smallest}')
-    */
+        // Calculate the largest number of all the numbers in the list
+        int largestNumber = 0;
+        foreach (int largest in numbers)
+        {
+            if (largest > largestNumber)
+                largestNumber = largest;
+        }
+        Console.WriteLine($"\nThe largest number is: {largestNumber}");
+
+        /*
+        max = -1
+        for number in numbers:
+            if number > max:
+                max = number
+        print(f'The largest number is: {max}')
+        
+        # Calculate the smallest positive number of all the numbers in the list
+        smallest = 9999999999999999
+        for number in numbers:
+            if number > 0 and number < smallest:
+                smallest = number
+        print(f'The smallest positive number is: {smallest}')
+        */
     }
 }
