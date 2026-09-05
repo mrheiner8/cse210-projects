@@ -13,6 +13,7 @@ class Program
         List<int> numbers = new List<int>();
         int listNumber = -1;
         int total = 0;
+        
 
         // loop to get a list of numbers from the user
         while (listNumber != 0)
@@ -36,14 +37,13 @@ class Program
         {
             total += totalNumber;
         }
-        Console.WriteLine($"The sum is: {total}");
+        Console.WriteLine($"\nThe sum is: {total}");
 
+        // Calculates the average of all numbers in the list
+        int count = numbers.Count;
+        float average = (float)total / count;
+        Console.WriteLine($"\nThe average is: {average}");
     /*
-    # Calculates the average of all numbers in the list
-    count = len(numbers)
-    average = sum/count
-    print(f'The average is: {average}')
-
     # Calculate the lagest number of all the numbers in the list
     max = -1
     for number in numbers:
