@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 class Program
@@ -54,20 +55,5 @@ class Program
             }
         }
         Console.WriteLine($"\nThe largest number is: {largestNumber}");
-
-        /*
-        max = -1
-        for number in numbers:
-            if number > max:
-                max = number
-        print(f'The largest number is: {max}')
-        
-        # Calculate the smallest positive number of all the numbers in the list
-        smallest = 9999999999999999
-        for number in numbers:
-            if number > 0 and number < smallest:
-                smallest = number
-        print(f'The smallest positive number is: {smallest}')
-        */
     }
 }
