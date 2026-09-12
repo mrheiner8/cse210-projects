@@ -21,18 +21,20 @@ class Program
 
             if (choice == "1")
             {
-                Console.WriteLine("You chose #1. Write!");
-                // Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
-                Console.WriteLine($"{myPromptGenerator}");
-                
-                string promptText = "";
-                string entryText = Console.ReadLine();
-
                 // Get the date and time
                 DateTime theCurrentTime = DateTime.Now;
                 string date = theCurrentTime.ToShortDateString();
+                string promptText = myPromptGenerator.GetRandomPrompt();
+
+                Console.WriteLine("You chose #1. Write!");
+                // Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
+                Console.WriteLine($"{promptText}");
+                
+                string entryText = Console.ReadLine();
+
 
                 Entry myEntry = new Entry(date, promptText, entryText);
+                myJournal.AddEntry(myEntry);
                 
             }
 
@@ -45,8 +47,13 @@ class Program
 
             else if (choice == "3")
             {
-                Console.WriteLine("You chose #3 Save!");
+                Console.WriteLine("You chose #3 Save!\n");
                 // Save: ask for a filename, write all entries to that file(using a separator character like |, since it's a plain text file, not real CSV)
+                Console.WriteLine("What would you like the file name to be?");
+                string file = Console.ReadLine();
+                myJournal.SaveToFile(file);
+
+                Console.WriteLine($"Saving to {file}");
             }
 
             else if (choice == "4")

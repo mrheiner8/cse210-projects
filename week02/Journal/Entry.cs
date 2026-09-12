@@ -21,5 +21,10 @@ public class Entry
     {
         Console.WriteLine($"\nDate: {_date} - Prompt: {_promptText}\n{_entryText}");
     }
+
+    public string SaveEntry()
+    {
+        return $"{_date}~{_promptText}~{_entryText}";
+    }
 }
 // End Entry.cs
