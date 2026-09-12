@@ -16,7 +16,7 @@ public class Entry
         _entryText = entryText;
     }
 
-    // Create custom method to format and display data stored in 'Job'
+    // Create custom method to format and display data stored in 'Entry'
     public void Display()
     {
         Console.WriteLine($"\nDate: {_date} - Prompt: {_promptText}\n{_entryText}");

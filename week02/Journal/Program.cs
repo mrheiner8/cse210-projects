@@ -12,7 +12,7 @@ class Program
         Journal myJournal = new Journal();
         PromptGenerator myPromptGenerator = new PromptGenerator();
 
-        // 1. Show a menu with options: write, display, save, load, quit
+        // Show a menu with options: write, display, save, load, quit
         string choice = "0";
         while (choice != "5")
         {
@@ -21,6 +21,8 @@ class Program
 
             if (choice == "1")
             {
+                Console.WriteLine("You chose #1. Write!");
+                // Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
                 Console.WriteLine($"{myPromptGenerator}");
                 string date = "";
                 string promptText = "";
@@ -32,17 +34,21 @@ class Program
 
             else if (choice == "2")
             {
-                Console.WriteLine("You chose #2!");
+                Console.WriteLine("You chose #2 Display!");
+                // Display: loop through all entries and show each one
+                myJournal.DisplayAll();
             }
 
             else if (choice == "3")
             {
-                Console.WriteLine("You chose #3!");
+                Console.WriteLine("You chose #3 Save!");
+                // Save: ask for a filename, write all entries to that file(using a separator character like |, since it's a plain text file, not real CSV)
             }
 
             else if (choice == "4")
             {
-                Console.WriteLine("You chose #4!");
+                Console.WriteLine("You chose #4 Load!");
+                // Load: ask for a filename, read it back in, and replace the current list of entries
             }
 
             else if (choice == "5")
@@ -55,11 +61,6 @@ class Program
                 Console.WriteLine("I'm sorry that was an invalid response. Please select 1, 2, 3, 4, or 5");
             }
         }
-        // 2. Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
-        // 3. Display: loop through all entries and show each one
-        // 4. Save: ask for a filename, write all entries to that file(using a separator character like |, since it's a plain text file, not real CSV)
-        // 5. Load: ask for a filename, read it back in, and replace the current list of entries
-
     }
 }
 // End Program.cs
