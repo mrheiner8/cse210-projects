@@ -24,9 +24,13 @@ class Program
                 Console.WriteLine("You chose #1. Write!");
                 // Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
                 Console.WriteLine($"{myPromptGenerator}");
-                string date = "";
+                
                 string promptText = "";
                 string entryText = Console.ReadLine();
+
+                // Get the date and time
+                DateTime theCurrentTime = DateTime.Now;
+                string date = theCurrentTime.ToShortDateString();
 
                 Entry myEntry = new Entry(date, promptText, entryText);
                 

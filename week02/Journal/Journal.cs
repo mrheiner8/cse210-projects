@@ -10,14 +10,19 @@ public class Journal
     public List<Entry> _entries = [];
 
 
-    // Create custom method to format and display data stored in 'Job'
+    // Create custom method to format and display data stored in '-entries'
     public void AddEntry(Entry newEntry)
     {
         return;
     }
     public void DisplayAll()
     {
-        Console.WriteLine($"#");
+        Console.WriteLine($"{_entries}");
+        
+        foreach (Entry b in _entries)
+        {
+            
+        }
     }
 
     public void SaveToFile(string file)
