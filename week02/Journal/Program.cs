@@ -7,70 +7,59 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Journal Project.");
 
+        Console.WriteLine("\nWelcome to the Journal Program!");
+
+        Journal myJournal = new Journal();
+        PromptGenerator myPromptGenerator = new PromptGenerator();
+
+        // 1. Show a menu with options: write, display, save, load, quit
+        string choice = "0";
+        while (choice != "5")
+        {
+            Console.WriteLine("\nPlease select one of the following choices:\n1. Write\n2. Display\n3. Save\n4. Load\n5. Quit\nWhat would You like to do? ");
+            choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                Console.WriteLine($"{myPromptGenerator}");
+                string date = "";
+                string promptText = "";
+                string entryText = Console.ReadLine();
+
+                Entry myEntry = new Entry(date, promptText, entryText);
+                
+            }
+
+            else if (choice == "2")
+            {
+                Console.WriteLine("You chose #2!");
+            }
+
+            else if (choice == "3")
+            {
+                Console.WriteLine("You chose #3!");
+            }
+
+            else if (choice == "4")
+            {
+                Console.WriteLine("You chose #4!");
+            }
+
+            else if (choice == "5")
+            {
+                Console.WriteLine("Thank you have a nice day!");
+            }
+
+            else
+            {
+                Console.WriteLine("I'm sorry that was an invalid response. Please select 1, 2, 3, 4, or 5");
+            }
+        }
+        // 2. Writing an entry: get a random prompt, ask the user to respond, record date + prompt + response
+        // 3. Display: loop through all entries and show each one
+        // 4. Save: ask for a filename, write all entries to that file(using a separator character like |, since it's a plain text file, not real CSV)
+        // 5. Load: ask for a filename, read it back in, and replace the current list of entries
 
     }
 }
 // End Program.cs
-
-/*
-public class Entry
-{
-// Entry.cs
-using System;
-
-// Create a class (custom data types) to use in Program
-public class Entry
-{
-    // Create Member variables
-    public string _date = "";
-    public string _promptText = "";
-    public string _entryText = "";
-
-
-    // Create custom method to format and display data stored in 'Job'
-    public void Display()
-    {
-        Console.WriteLine($"\nDate: {_date} - Prompt: {_promptText}\n{_entryText}");
-    }
-}
-// End Entry.cs
-
-// Journal.cs
-using System;
-
-// Create a class (custom data types) to use in Program
-public class Journal
-{
-    // Create Member variables
-    public List<Entry> _entries = [];
-
-
-    // Create custom method to format and display data stored in 'Job'
-    public void AddEntry(newEntry : Entry)
-    public void DisplayAll()
-
-    [
-
-        Console.WriteLine($"")
-    
-    ]
-    public void SaveToFile(file : string)
-    public void LoadFromFile(file : string)
-}
-// End Journal.cs
-
-// PromptGenerator.cs
-using System;
-
-// Create a class (custom data types) to use in Program
-public class PromptGenerator
-{
-    // Create Member variables
-    public List<string> _prompts = [];
-
-
-    // Create custom method to format and display data stored in 'Job'
-    public string GetRandomPrompt();
-}    
-// End PromptGenerator.cs
-*/

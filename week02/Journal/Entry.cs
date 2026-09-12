@@ -9,6 +9,12 @@ public class Entry
     public string _promptText = "";
     public string _entryText = "";
 
+    public Entry(string date, string promptText, string entryText)
+    {
+        _date = date;
+        _promptText = promptText;
+        _entryText = entryText;
+    }
 
     // Create custom method to format and display data stored in 'Job'
     public void Display()
