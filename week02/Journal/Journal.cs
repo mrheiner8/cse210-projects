@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-{
-    
-}
 
 
 // Create a class (custom data types) to use in Program
@@ -29,9 +26,9 @@ public class Journal
 
     public void SaveToFile(string file)
     {
-        string filename = file;
+        string fileName = file;
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entry e in _entries)
             {
@@ -42,7 +39,22 @@ public class Journal
     }
     public void LoadFromFile(string file)
     {
-        return;
+        string fileName = file;
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        _entries.Clear();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("~");
+
+            string loadDate = parts[0];
+            string loadPromptText = parts[1];
+            string loadEntryText = parts[2];
+
+            Entry myEntry = new Entry(loadDate, loadPromptText, loadEntryText);
+            AddEntry(myEntry);
+        }
     }
 }
 // End Journal.cs
