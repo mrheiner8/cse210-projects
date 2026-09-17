@@ -10,19 +10,40 @@ public class Fraction
     private int _bottom;
 
     // Constructors
-    /*
-    Fraction()
-    Fraction(wholeNumber : int)
-    Fraction(top : int, bottom : int)
-    */
+
+    public Fraction()
+    {
+        _top = 1;
+        _bottom = 1;
+    }
+    
+    public Fraction(int top)
+    {
+        _top = top;
+        _bottom = 1;
+    }
+  
+    public Fraction(int top, int bottom)
+    {
+        _top = top;
+        _bottom = bottom;
+    }
+
 
     // Getters and Setters
-    /*
-    GetTop()
-    SetTop(top : int)
-    GetBottom()
-    SetBottom(bottom : int)
-    */
+    public int GetTop()
+    {
+        return _top;
+    }
+    
+    // SetTop(top : int)
+    public int GetBottom()
+    {
+        return _bottom;
+    }
+    
+    // SetBottom(bottom : int)
+    
 
     // Methods
     /*
