@@ -16,13 +16,13 @@ public class Fraction
         _top = 1;
         _bottom = 1;
     }
-    
+
     public Fraction(int top)
     {
         _top = top;
         _bottom = 1;
     }
-  
+
     public Fraction(int top, int bottom)
     {
         _top = top;
@@ -35,21 +35,33 @@ public class Fraction
     {
         return _top;
     }
-    
-    // SetTop(top : int)
+
+    public void SetTop(int top)
+    {
+        _top = top;
+    }
+
     public int GetBottom()
     {
         return _bottom;
     }
-    
-    // SetBottom(bottom : int)
-    
+
+    public void SetBottom(int bottom)
+    {
+        _bottom = bottom;
+    }
+
 
     // Methods
-    /*
-    GetFractionString() : string
-    GetDecimalValue() : double
-    */
-}
 
+    public string GetFractionString()
+    {
+        return $"{_top}/{_bottom}";
+    }
+
+    public double GetDecimalValue()
+    {
+        return (double)_top / _bottom;
+    }
+}
 // End Fraction.cs
