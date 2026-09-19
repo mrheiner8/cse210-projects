@@ -8,8 +8,10 @@ class Program
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
 
         string input = "";
-        Reference reference = new Reference("Amos", 1, 5);
+        Reference reference = new Reference("Amos", 1, 5, 7);
         Scripture scripture = new Scripture(reference, "once upon a time...");
+
+        Console.WriteLine($"\n{reference.GetDisplayText()} \n\"once upon a time...\"\n");
 
         while (input != "quit" && scripture.IsCompletelyHidden() == false)
         {
@@ -18,7 +20,7 @@ class Program
 
 
         }
-        Console.WriteLine("thank you, come again!");
+        Console.WriteLine("\nThank you, come again!");
     }
 }
 // End Program.cs

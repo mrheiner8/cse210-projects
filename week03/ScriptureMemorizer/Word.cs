@@ -17,27 +17,34 @@ public class Word
     }
 
     // Getters and Setters
-    public string GetDisplayText()
+    public string GetDisplayText() //comeback to this whe reference is done
     {
-        return _text;
+        if (_isHidden == false)//(!_isHidden)
+        {
+            return _text;
+        }
+        else
+        {
+            string hiddenText = new string('_', _text.Length);
+            return hiddenText;
+        }
     }
     // Methods
 
     public void Hide()
     {
-        return ;
+        _isHidden = true;
     }
 
     public void Show()
     {
-        return;
+        _isHidden = false;
     }
 
-    /* commented out for now so that is doesn't break the code
     public bool IsHidden()
     {
-        return ;
+        return _isHidden;
     }
-    */
+
 }
 // End Word.cs
