@@ -1,5 +1,8 @@
 // Scripture.cs
 using System;
+using System.Collections.Generic;
+using System.IO;
+
 
 
 // Create a class (custom data types) to use in Program
@@ -9,20 +12,31 @@ public class Scripture
     private Reference _reference;
     private List<Word> _words;
 
-    private string _test; //for testing
 
     // Constructors
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
-        _test = text;
-    }
+        _words = new List<Word>();
 
+        string[] splitWords = text.Split(' ');
+        foreach (string oneWord in splitWords)
+        {
+            Word single = new Word(oneWord);
+            _words.Add(single);
+
+        }
+    }
 
     // Getters and Setters
     public string GetDisplayText()
     {
-        return "";
+        string displayText = "";
+        foreach (Word single in _words)
+        {
+            displayText += $"{single.GetDisplayText()} ";
+        }
+        return $"\n{_reference.GetDisplayText()} \n{displayText}\n";
     }
 
     // Methods

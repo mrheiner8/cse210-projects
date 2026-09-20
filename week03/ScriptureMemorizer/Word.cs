@@ -17,7 +17,7 @@ public class Word
     }
 
     // Getters and Setters
-    public string GetDisplayText() //comeback to this whe reference is done
+    public string GetDisplayText() 
     {
         if (_isHidden == false)//(!_isHidden)
         {
