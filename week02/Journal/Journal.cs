@@ -31,8 +31,7 @@ public class Journal
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entry e in _entries)
-            {
-                
+            {                
                 outputFile.WriteLine(e.SaveEntry());
             }
         }

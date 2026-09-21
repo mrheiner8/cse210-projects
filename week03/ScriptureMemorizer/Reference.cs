@@ -21,7 +21,6 @@ public class Reference
 
     }
 
-
     // Getters and Setters
     public string GetDisplayText()
     {

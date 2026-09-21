@@ -1,16 +1,14 @@
 // Scripture.cs
 using System;
 using System.Collections.Generic;
-using System.IO;
-
-
 
 // Create a class (custom data types) to use in Program
 public class Scripture
 {
-    // Member variables
+    // Member variables (fields)
     private Reference _reference;
     private List<Word> _words;
+    private Random _random;
 
 
     // Constructors
@@ -18,13 +16,13 @@ public class Scripture
     {
         _reference = reference;
         _words = new List<Word>();
+        _random = new Random();
 
         string[] splitWords = text.Split(' ');
         foreach (string oneWord in splitWords)
         {
             Word single = new Word(oneWord);
             _words.Add(single);
-
         }
     }
 
@@ -42,14 +40,26 @@ public class Scripture
     // Methods
     public void HideRandomWords(int numberToHide)
     {
-        numberToHide = 1;
-        return;
+
+        for (int i = 0; i < numberToHide; i++)
+        {
+            int randomIndex = _random.Next(0, _words.Count);
+
+            Word wordToHide = _words[randomIndex];
+            wordToHide.Hide();
+        }
     }
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        foreach (Word w in _words)
+        {
+            if (w.IsHidden() == false)
+            {
+                return false;
+            }
+        }
+        return true;
     }
-
 }
 // End Scripture.cs

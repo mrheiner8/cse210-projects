@@ -17,9 +17,9 @@ public class Word
     }
 
     // Getters and Setters
-    public string GetDisplayText() 
+    public string GetDisplayText()
     {
-        if (_isHidden == false)//(!_isHidden)
+        if (_isHidden == false)
         {
             return _text;
         }
@@ -45,6 +45,5 @@ public class Word
     {
         return _isHidden;
     }
-
 }
 // End Word.cs
