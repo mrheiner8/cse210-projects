@@ -8,7 +8,7 @@ public class Video
     // Member variables
     private string _title = "";
     private string _author = "";
-    private int _length ;
+    private int _length;
     private List<Comment> _comments = [];
 
     // Constructors
@@ -19,17 +19,36 @@ public class Video
         _length = length;
     }
 
-
     // Getters and Setters
+
+    public string GetTitle()
+    {
+        return _title;
+    }
+
+    public string GetAuthor()
+    {
+        return _author;
+    }
+
+    public int GetLength()
+    {
+        return _length;
+    }
+
+    public List<Comment> GetComments()
+    {
+        return _comments;
+    }
 
     // Methods
     public void AddComment(Comment newComment)
     {
         _comments.Add(newComment);
     }
-    public static int NumberOfComments()
+    public int NumberOfComments()
     {
-        return 1; //place holder needs to be replaced
+        return _comments.Count;
     }
 }
 // End Video.cs
