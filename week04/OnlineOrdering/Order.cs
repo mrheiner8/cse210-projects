@@ -31,21 +31,37 @@ public class Order
 
     public double TotalCost()
     {
+        double subtotal = 0;
         double total = 0;
-        foreach (double p. in _products)
+        foreach (Product p in _products)
         {
-            total += _products;
+            subtotal += p.TotalCost();
         }
+
+        if (_customer.Usa() == true)
+        {
+            total = subtotal + 5;
+        }
+        else
+        {
+            total = subtotal + 35;
+        }
+        return total;
     }
 
     public string ShippingLabel()
     {
-        return "";
+        return $"{_customer.GetGivenName()} {_customer.GetFamilyName()}\n{_customer.GetAddress().ShowAddress()}";
     }
 
     public string PackingLabel()
     {
-        return "";
+        string displayPackingLabel = "";
+        foreach (Product p in _products)
+        {
+            displayPackingLabel += $"{p.GetName()}: {p.GetProductId()}";
+        }
+        return displayPackingLabel;
     }
 }
 // End Order.cs
