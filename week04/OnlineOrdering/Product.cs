@@ -62,17 +62,10 @@ public class Product
         _quantity = quantity;
     }
 
-
-
     // Methods
     public double TotalCost()
     {
         return _price * _quantity;
-    }
-
-    public string ShowCost()
-    {
-        return "";
     }
 }
 // End Product.cs
