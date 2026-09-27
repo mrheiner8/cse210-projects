@@ -53,7 +53,7 @@ public class Customer
     // Methods
     public bool Usa()
     {
-        return true;
+        return _address.Usa();
     }
 }
 // End Customer.cs
