@@ -10,7 +10,7 @@ class Program
         List<Order> orders = new List<Order>();
 
         // Name and create 1st 'Address' instance 
-        Address a1 = new Address("streetAddress1", "city1", "stateProvince1", 11111, "country1");
+        Address a1 = new Address("streetAddress1", "city1", "stateProvince1", 11111, "USA");
         Customer a1c1 = new Customer("givenName1", "familyName1", a1);
         Product a1p1 = new Product("(product) name1", "productId1", 1.1, 1);
         Product a1p2 = new Product("(product) name2", "productId2", 2.2, 2);

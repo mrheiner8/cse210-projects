@@ -67,7 +67,7 @@ public class Product
     // Methods
     public double TotalCost()
     {
-        return 1.1;
+        return _price * _quantity;
     }
 
     public string ShowCost()

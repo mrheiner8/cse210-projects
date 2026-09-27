@@ -31,7 +31,11 @@ public class Order
 
     public double TotalCost()
     {
-        return 1.1;
+        double total = 0;
+        foreach (double p. in _products)
+        {
+            total += _products;
+        }
     }
 
     public string ShippingLabel()

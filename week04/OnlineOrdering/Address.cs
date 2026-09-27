@@ -79,12 +79,19 @@ public class Address
     // Methods
     public bool Usa()
     {
-        return true;
+        if (GetCountry() == "USA")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public string ShowAddress()
     {
-        return "";
+        return $"{_streetAddress}\n{_city}, {_stateProvince} {_postalCode}\n{_country}";
     }
 }
 // End Address.cs
