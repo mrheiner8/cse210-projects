@@ -9,11 +9,11 @@ public class Address
     private string _streetAddress = "";
     private string _city = "";
     private string _stateProvince = "";
-    private int _postalCode;
+    private string _postalCode;
     private string _country;
 
     // Constructors
-    public Address(string streetAddress, string city, string stateProvince, int postalCode, string country)
+    public Address(string streetAddress, string city, string stateProvince, string postalCode, string country)
     {
         _streetAddress = streetAddress;
         _city = city;
@@ -54,12 +54,12 @@ public class Address
         _stateProvince = stateProvince;
     }
 
-    public int GetPostalCode()
+    public string GetPostalCode()
     {
         return _postalCode;
     }
 
-    public void SetPostalCode(int postalCode)
+    public void SetPostalCode(string postalCode)
     {
         _postalCode = postalCode;
     }

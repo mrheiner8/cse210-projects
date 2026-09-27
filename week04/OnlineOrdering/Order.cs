@@ -13,6 +13,7 @@ public class Order
     public Order(Customer customer)
     {
         _customer = customer;
+        _products = new List<Product>();
     }
 
     // Getters and Setters
@@ -21,7 +22,6 @@ public class Order
     {
         return _products;
     }
-
 
     // Methods
     public void AddProduct(Product newProduct)
@@ -59,7 +59,7 @@ public class Order
         string displayPackingLabel = "";
         foreach (Product p in _products)
         {
-            displayPackingLabel += $"{p.GetName()}: {p.GetProductId()}";
+            displayPackingLabel += $"\n{p.GetName()}: {p.GetProductId()}";
         }
         return displayPackingLabel;
     }
