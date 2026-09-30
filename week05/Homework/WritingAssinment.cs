@@ -8,7 +8,7 @@ public class WritingAssignment : Assignment
     private string _title = "";
    
     // Constructors
-    public WritingAssignment(string studentName, string topic, string title) : base 
+    public WritingAssignment(string studentName, string topic, string title) : base (studentName, topic)
     {
         _title = title;
     }
