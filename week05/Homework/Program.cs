@@ -7,13 +7,18 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Homework Project.");
 
-        List<Assignment> assignments = new List<Assignment>();
+        Assignment testAssignment = new Assignment("Samuel Bennett", "Multiplication");
+        Console.WriteLine(testAssignment.GetSummary());
 
-        Assignment firstAssignment = new Assignment("Samuel Bennett", "Multiplication");
-        assignments.Add(firstAssignment);
+        Console.WriteLine();
+        MathAssignment testMathAssignment = new MathAssignment("Roberto Rodriguez", "Fractions", "7.3", "8-19");
+        Console.WriteLine(testMathAssignment.GetSummary());
+        Console.WriteLine(testMathAssignment.GetHomeworkList());
 
-        Console.WriteLine(firstAssignment.GetSummary());
-
+        Console.WriteLine();
+        WritingAssignment testWritingAssignment = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
+        Console.WriteLine(testWritingAssignment.GetSummary());
+        Console.WriteLine(testWritingAssignment.GetWritingInformation());
     }
 }
 // End (Homework)Program.cs

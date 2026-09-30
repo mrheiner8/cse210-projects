@@ -15,12 +15,10 @@ public class Assignment
         _topic = topic;
     }
 
-    // Getters and Setters
+    // Methods
     public string GetSummary()
     {
         return $"{_studentName} - {_topic}";
     }
-
-    // Methods
 }
 // End Assignment.cs

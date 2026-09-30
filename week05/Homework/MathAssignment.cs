@@ -15,12 +15,10 @@ public class MathAssignment : Assignment
         _problems = problems;
     }
 
-    // Getters and Setters
+    // Methods
     public string GetHomeworkList()
     {
-        return $"{_textbookSection} {_problems}";
+        return $"Section {_textbookSection} Problems {_problems}";
     }
-
-    // Methods
 }
 // End MathAssignment.cs

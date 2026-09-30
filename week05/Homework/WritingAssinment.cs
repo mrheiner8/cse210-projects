@@ -6,19 +6,17 @@ public class WritingAssignment : Assignment
 {
     // Member variables
     private string _title = "";
-   
+
     // Constructors
-    public WritingAssignment(string studentName, string topic, string title) : base (studentName, topic)
+    public WritingAssignment(string studentName, string topic, string title) : base(studentName, topic)
     {
         _title = title;
     }
 
-    // Getters and Setters
+    // Methods
     public string GetWritingInformation()
     {
-        return $"{_title}";
+        return $"{_title} by {_studentName}";
     }
-
-    // Methods
 }
 // End WritingAssignment.cs
