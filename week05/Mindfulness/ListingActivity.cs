@@ -10,9 +10,10 @@ public class ListingActivity : Activity
     private List<string> _prompts = [];
 
     // Constructors
-    public ListingActivity() : base("Listing Activity", "Listing Activity description")
+    public ListingActivity() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
     }
+    
     // Getters and Setters
     public int GetCount() //Remove if not needed
     {
