@@ -8,9 +8,19 @@ public class ReflectingActivity : Activity
     // Member variables
     private List<string> _prompts = [];
     private List<string> _questions = [];
-    // Constructors
 
-    // Getters and Setters
+    // Constructors
+    public ReflectingActivity() : base("Reflecting Activity", "Reflecting Activity description")
+    {
+    }
+
+    // Getters and Setters (Remove if not needed)
+
+    // Methods
+    public void Run()
+    {
+        // TODO: write this later
+    }
     public string GetRandomPrompt()
     {
         return "";// placeholder so it compiles
@@ -19,12 +29,6 @@ public class ReflectingActivity : Activity
     {
         return "";// placeholder so it compiles
     }
-    // Methods
-    public void Run()
-    {
-        // TODO: write this later
-    }
-
     public void DisplayPrompt()
     {
         // TODO: write this later

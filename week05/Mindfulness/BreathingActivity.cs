@@ -6,8 +6,11 @@ using System.Collections.Generic;
 public class BreathingActivity : Activity
 {
     // Constructors
-
-    // Getters and Setters
+    public BreathingActivity() : base("Breathing Activity", "Breathing Activity description")
+    {
+    }
+    
+    // Getters and Setters (Remove if not needed)
 
     // Methods
     public void Run()

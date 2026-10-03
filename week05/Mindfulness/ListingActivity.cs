@@ -10,9 +10,24 @@ public class ListingActivity : Activity
     private List<string> _prompts = [];
 
     // Constructors
-
+    public ListingActivity() : base("Listing Activity", "Listing Activity description")
+    {
+    }
     // Getters and Setters
+    public int GetCount() //Remove if not needed
+    {
+        return _count;
+    }
+    public void SetCount(int count)//Remove if not needed
+    {
+        _count = count;
+    }
 
+    // Methods
+    public void Run()
+    {
+        // TODO: write this later
+    }
     public string GetRandomPrompt()
     {
         return "";// placeholder so it compiles
@@ -20,12 +35,6 @@ public class ListingActivity : Activity
     public List<string> GetListFromUser()
     {
         return [];// placeholder so it compiles
-    }
-
-    // Methods
-    public void Run()
-    {
-        // TODO: write this later
     }
 }
 // End ListingActivity.cs
