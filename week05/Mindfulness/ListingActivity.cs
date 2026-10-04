@@ -10,7 +10,7 @@ public class ListingActivity : Activity
     private List<string> _prompts = [];
 
     // Constructors
-    public ListingActivity() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
+    public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
     }
     
@@ -28,6 +28,9 @@ public class ListingActivity : Activity
     public void Run()
     {
         // TODO: write this later
+        DisplayStartingMessage();
+
+        DisplayEndingMessage();
     }
     public string GetRandomPrompt()
     {

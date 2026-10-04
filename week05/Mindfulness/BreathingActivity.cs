@@ -6,16 +6,17 @@ using System.Collections.Generic;
 public class BreathingActivity : Activity
 {
     // Constructors
-    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    public BreathingActivity() : base("Breathing", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")
     {
     }
-    
-    // Getters and Setters (Remove if not needed)
 
     // Methods
     public void Run()
     {
         // TODO: write this later
+        DisplayStartingMessage();
+
+        DisplayEndingMessage();
     }
 }
 // End BreathingActivity.cs
