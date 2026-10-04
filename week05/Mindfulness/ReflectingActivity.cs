@@ -40,6 +40,14 @@ public class ReflectingActivity : Activity
         // TODO: write this later
         DisplayStartingMessage();
 
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+
+        while (DateTime.Now < endTime)
+        {
+
+        }
+
         DisplayEndingMessage();
     }
     public string GetRandomPrompt()

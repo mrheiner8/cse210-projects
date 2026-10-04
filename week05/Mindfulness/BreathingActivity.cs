@@ -13,7 +13,6 @@ public class BreathingActivity : Activity
     // Methods
     public void Run()
     {
-        // TODO: write this later
         DisplayStartingMessage();
 
         DateTime startTime = DateTime.Now;

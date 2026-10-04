@@ -57,6 +57,7 @@ public class Activity
 
     public void ShowSpinner(int seconds)
     {
+        // Create a list<string> of characters need for the spinner
         List<string> spinnerStrings = ["|", "/", "-", "\\"];
 
         DateTime startTime = DateTime.Now;
