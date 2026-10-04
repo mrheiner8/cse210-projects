@@ -57,22 +57,28 @@ public class Activity
 
     public void ShowSpinner(int seconds)
     {
-        // Create a list<string> of characters need for the spinner
+        // Create a list<string> of characters needed for the spinner
         List<string> spinnerStrings = ["|", "/", "-", "\\"];
 
+        // Get current time from DateTime. Now for the start time and add seconds to get the end time.
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
 
+        // Set to 0 to use for index reset.
         int spins = 0;
 
+        // Create a while loop to loop through each index in the list sequentially 
         while (DateTime.Now < endTime)
         {
+            // Set local variable to get one index at a time
             string spinner = spinnerStrings[spins];
+            // Write spin spinnerStrings character, pause for half a second, erase that character, repeat with the next index
             Console.Write(spinner);
             Thread.Sleep(500);
             Console.Write("\b \b");
-
             spins++;
+
+            // When the count goes beyond the last index, reset to the starting index
             if (spins >= spinnerStrings.Count)
             {
                 spins = 0;

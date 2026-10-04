@@ -37,34 +37,54 @@ public class ReflectingActivity : Activity
     // Methods
     public void Run()
     {
-        // TODO: write this later
         DisplayStartingMessage();
 
+        Console.WriteLine("Consider the following prompt:\n");
+
+        DisplayPrompt();
+
+        Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
+
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience\nYou may begin in: ");
+        ShowCountDown(5);
+        Console.WriteLine();
+        //Console.Clear(); 
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(GetDuration());
 
         while (DateTime.Now < endTime)
         {
-
+            DisplayQuestions();
+            ShowSpinner(15);
+            Console.WriteLine();
         }
 
         DisplayEndingMessage();
     }
     public string GetRandomPrompt()
     {
-        return "";// placeholder so it compiles
+        Random random = new Random();
+        int index = random.Next(_prompts.Count);
+        string randomPrompt = _prompts[index];
+
+        return randomPrompt;
     }
     public string GetRandomQuestion()
     {
-        return "";// placeholder so it compiles
+        Random random = new Random();
+        int index = random.Next(_questions.Count);
+        string randomQuestion = _questions[index];
+
+        return randomQuestion;
     }
     public void DisplayPrompt()
     {
-        // TODO: write this later
+        Console.WriteLine($" --- {GetRandomPrompt()} --- ");
     }
     public void DisplayQuestions()
     {
-        // TODO: write this later
+        Console.Write($"> {GetRandomQuestion()}");
     }
 }
 // End ReflectingActivity.cs
