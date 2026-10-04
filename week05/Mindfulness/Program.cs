@@ -7,11 +7,9 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Mindfulness Project.");
 
+        BreathingActivity ba1 = new BreathingActivity();
 
-        Activity a1 = new Activity("Rooting", "name one thing that you can see, one thing you can hear, one thing you can touch, and one thing you can smell or taste right now");
-
-        a1.DisplayStartingMessage();
-        a1.DisplayEndingMessage();
+        ba1.Run();
     }
 }
 // End (Mindfulness) Program.cs

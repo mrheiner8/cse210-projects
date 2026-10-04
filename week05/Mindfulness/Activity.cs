@@ -37,22 +37,22 @@ public class Activity
         string durationInput = Console.ReadLine();
         SetDuration(int.Parse(durationInput));
 
-        Console.Clear();
+        //Console.Clear();
 
-        Console.WriteLine("Get Ready…\n");
+        Console.Write("Get Ready…\n");
         ShowCountDown(5);
     }
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("\nWell done!!\n\n");
+        Console.WriteLine("\nWell done!!\n");
 
         ShowSpinner(5);
 
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity.");
         ShowSpinner(5);
 
-        Console.Clear();
+        //Console.Clear();
     }
 
     public void ShowSpinner(int seconds)

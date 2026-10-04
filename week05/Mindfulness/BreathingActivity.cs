@@ -16,6 +16,18 @@ public class BreathingActivity : Activity
         // TODO: write this later
         DisplayStartingMessage();
 
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("\nBreathe in… ");
+            ShowCountDown(4);
+            Console.Write("\nBreathe out… ");
+            ShowCountDown(6);
+            Console.WriteLine();
+        }
+
         DisplayEndingMessage();
     }
 }
