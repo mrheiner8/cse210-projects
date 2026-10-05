@@ -51,9 +51,10 @@ public class ListingActivity : Activity
     }
     public List<string> GetListFromUser()
     {
+        // Adapted for Bro. ReadKey sample 
         /*
         Known limitations: 
-        1. pressing enter without typing anything else will create a blank line will count in the final count 
+        1. pressing enter without typing anything else will create a blank line that will show in the final count 
         2. If the timer times out while the user is in the middle of an unsaved line the line will be lost.
         3. Because ReadKey is blocking, the timer only ends after a keystroke. 
         */

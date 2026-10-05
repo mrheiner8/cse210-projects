@@ -44,10 +44,10 @@ public class ReflectingActivity : Activity
         Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
         Console.ReadLine();
 
-        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience\nYou may begin in: ");
+        Console.Write("Now ponder on each of the following questions as they relate to this experience\nYou may begin in: ");
         ShowCountDown(5);
         Console.WriteLine();
-        //Console.Clear(); 
+
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(GetDuration());
 
