@@ -32,8 +32,6 @@ public class ReflectingActivity : Activity
     {
     }
 
-    // Getters and Setters (Remove if not needed)
-
     // Methods
     public void Run()
     {
@@ -46,7 +44,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
         Console.ReadLine();
 
-        Console.WriteLine("Now ponder on each of the following questions as they related to this experience\nYou may begin in: ");
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience\nYou may begin in: ");
         ShowCountDown(5);
         Console.WriteLine();
         //Console.Clear(); 

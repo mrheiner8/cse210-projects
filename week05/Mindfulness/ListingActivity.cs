@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class ListingActivity : Activity
 {
     // Member variables
-    private int _count;
     private List<string> _prompts = new List<string>
     {
         "Who are people that you appreciate?",
@@ -20,52 +19,65 @@ public class ListingActivity : Activity
     public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
     }
-    
-    // Getters and Setters
-    public int GetCount() //Remove if not needed
-    {
-        return _count;
-    }
-    public void SetCount(int count)//Remove if not needed
-    {
-        _count = count;
-    }
 
     // Methods
     public void Run()
     {
-        // TODO: write this later
         DisplayStartingMessage();
 
-        Console.WriteLine("List as many responses you can to the following prompt:");
-        GetRandomPrompt();
-        Console.Write("You may begin in: ");
+        Console.WriteLine("\nList as many responses you can to the following prompt:");
+        DisplayPrompt();
+        Console.Write("\nYou may begin in: ");
         ShowCountDown(5);
+        Console.WriteLine();
 
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(GetDuration());
+        List<string> userResponses = GetListFromUser();
 
-        while (DateTime.Now < endTime)
-        {
-            /*
-            "> 'User input' into GetListFromUser()"(repeated for the duration)
-            */
-        }
-        
-        Console.WriteLine($"You listed {GetCount}items!");
-
+        Console.WriteLine($"\nYou listed {userResponses.Count} items!");
 
         DisplayEndingMessage();
     }
-    public void GetRandomPrompt()
+    public string GetRandomPrompt()
     {
         Random random = new Random();
         int index = random.Next(_prompts.Count);
         string randomPrompt = _prompts[index];
+
+        return randomPrompt;
+    }
+    public void DisplayPrompt()
+    {
+        Console.WriteLine($"\n --- {GetRandomPrompt()} --- ");
     }
     public List<string> GetListFromUser()
     {
-        return [];// placeholder so it compiles
+        /*
+        Known limitations: 
+        1. pressing enter without typing anything else will create a blank line will count in the final count 
+        2. If the timer times out while the user is in the middle of an unsaved line the line will be lost.
+        3. Because ReadKey is blocking, the timer only ends after a keystroke. 
+        */
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+        string responseLine = "";
+        List<string> responses = new();
+
+        while (DateTime.Now < endTime)
+        {
+            string keyStroke = Console.ReadKey().KeyChar.ToString();
+
+            if (keyStroke == "\r")
+            {
+                Console.WriteLine("");
+                responses.Add(responseLine);
+                responseLine = "";
+            }
+            else
+            {
+                responseLine += keyStroke;
+            }
+        }
+        return responses;
     }
 }
 // End ListingActivity.cs

@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class Activity
 {
     // Member variables
-    protected string _name = "";
-    protected string _description = "";
+    private string _name = "";
+    private string _description = "";
     private int _duration;
 
     // Constructors
@@ -37,7 +37,7 @@ public class Activity
         string durationInput = Console.ReadLine();
         SetDuration(int.Parse(durationInput));
 
-        //Console.Clear();
+        Console.Clear();
 
         Console.Write("Get Ready…\n");
         ShowCountDown(5);
@@ -52,7 +52,7 @@ public class Activity
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity.");
         ShowSpinner(5);
 
-        //Console.Clear();
+        Console.Clear();
     }
 
     public void ShowSpinner(int seconds)
