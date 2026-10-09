@@ -41,9 +41,5 @@ public class Rectangle : Shape
         double area = GetLength() * GetWidth();
         return area;
     }
-    public string DisplayArea()
-    {
-        return $"The area of the {GetColor()} Rectangle is {GetArea():F2} square units.";
-    }
 }
 // End Rectangle.cs

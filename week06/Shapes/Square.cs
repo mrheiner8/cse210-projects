@@ -29,10 +29,5 @@ public class Square : Shape
         double area = GetSide() * GetSide();
         return area;
     }
-
-    public string DisplayArea()
-    {
-        return $"The area of the {GetColor()} Square is {GetArea():F2} square units.";
-    }
 }
 // End Square.cs

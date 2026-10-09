@@ -6,15 +6,26 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Shapes Project.");
+        List<Shape> shapes = new List<Shape>();
 
-        Square testSquare1 = new Square("Blue", 3);
-        Console.WriteLine(testSquare1.DisplayArea());
+        Square square1 = new Square("Blue", 3);
+        shapes.Add(square1);
 
-        Rectangle testRectangle1 = new Rectangle("Orange", 3.5, 4.6);
-        Console.WriteLine(testRectangle1.DisplayArea());
+        Rectangle rectangle1 = new Rectangle("Orange", 3.5, 4.6);
+        shapes.Add(rectangle1);
 
-        Circle testCircle1 = new Circle("Green", 2.67);
-        Console.WriteLine(testCircle1.DisplayArea());
+        Circle circle1 = new Circle("Green", 2.67);
+        shapes.Add(circle1);
+
+        foreach (Shape s in shapes)
+        {
+            string color = s.GetColor();
+
+            double area = s.GetArea();
+
+            Console.WriteLine($"The {color} shape has an area of {area:F2}.");
+        }
+
     }
 }
 // End Program.cs

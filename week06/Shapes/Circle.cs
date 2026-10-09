@@ -29,10 +29,5 @@ public class Circle : Shape
         double area = Math.PI * GetRadius() * GetRadius();
         return area;
     }
-    
-    public string DisplayArea()
-    {
-        return $"The area of the {GetColor()} Circle is {GetArea():F2} square units.";
-    }
 }
 // End Circle.cs
