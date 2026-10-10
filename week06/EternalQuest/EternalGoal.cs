@@ -15,18 +15,15 @@ public class EternalGoal : Goal
     // Getters and Setters
 
     // Methods
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        return 0;
     }
     public override bool IsComplete()
     {
         return false;
     }
-    public override string GetDetailsString()
-    {
-        return "";
-    }
+
     public override string GetStringRepresentation()
     {
         return "";

@@ -62,7 +62,7 @@ public class GoalManager
             }
             else // Wrong input
             {
-                Console.WriteLine("\nI'm sorry that was an invalid response. Please select 1, 2, 3, 4, 5, or 6.\n"); 
+                Console.WriteLine("\nI'm sorry that was an invalid response. Please select 1, 2, 3, 4, 5, or 6.\n");
             }
         }
     }
@@ -76,23 +76,67 @@ public class GoalManager
     }
     public void ListGoalDetails()  // Lists the details of each goal (including the checkbox of whether it is complete).
     {
-        // The Goals are: 1. [    ]  { name of goal input}{ (description input)}2. [    ]  { name of goal input}{ (description input)}3. [    ]  { name of goal input}{ (description input)}    --Currently Completed: 0 of 3
-
+        Console.WriteLine("The Goals are:");   //--Currently Completed: 0 of 3
+        int counter = 0;
+        foreach (Goal goal in _goals)
+        {
+            counter++;
+            Console.WriteLine($"   {counter}. {goal.GetDetailsString()}");
+        }
     }
     public void CreateGoal()   // Asks the user for the information about a new goal.Then, creates the goal and adds it to the list.
     {
-        /*
-        The types of Goals are: 
-	    1. Simple Goal
-	    2. Eternal Goal //on going goal. Will not show as completed.
-	    3. Checklist Goal. 
-        Which type of goal would you like to create? 3
-        What is the name of your goal? (string input)
-        What is a short description of it? (string input)
-        What is the amount of points associated with this goal? (Int input)
-        How many times does this goal need to be accomplished for a bonus?  (Int input)
-        What is the bonus for accomplishing it that many times? (Int input)
-        */
+        string choice = "0";
+        DisplayPlayerInfo();
+        Console.Write("The types of Goals are:\n    1. Simple Goal\n    2. Eternal Goal\n    3. Checklist Goal\nWhich type of goal would you like to create? ");
+        choice = Console.ReadLine();
+
+        Console.Write("\nWhat is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        if (int.TryParse(Console.ReadLine(), out int points))
+        {
+        }
+        else
+        {
+            Console.WriteLine("Error: That was not a valid integer.\nWhat is the amount of points associated with this goal? ");
+        }
+
+        if (choice == "1") // 1. Simple Goal
+        {
+            Goal newSimpleGoal = new SimpleGoal(name, description, points);
+            _goals.Add(newSimpleGoal);
+        }
+        else if (choice == "2") // 2. Eternal Goals
+        {
+            Goal newEternalGoal = new EternalGoal(name, description, points);
+            _goals.Add(newEternalGoal);
+        }
+        else if (choice == "3") // 3. Checklist Goals
+        {
+            Console.Write("How many times does this goal need to be accomplished for a bonus?  (Int input)");
+            if (int.TryParse(Console.ReadLine(), out int target))
+            {
+                // 
+            }
+            else
+            {
+                Console.WriteLine("Error: That was not a valid integer.");
+            }
+            Console.Write("What is the bonus for accomplishing it that many times? (Int input)");
+            if (int.TryParse(Console.ReadLine(), out int bonus))
+            {
+                // 
+            }
+            else
+            {
+                Console.WriteLine("Error: That was not a valid integer.");
+            }
+            Goal newChecklistGoal = new ChecklistGoal(name, description, points, target, bonus);
+            _goals.Add(newChecklistGoal);
+        }
     }
     public void RecordEvent()   // Asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal.
     {

@@ -48,18 +48,15 @@ public class ChecklistGoal : Goal
     }
 
     // Methods
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-
+        return 0;
     }
     public override bool IsComplete()
     {
         return true;
     }
-    public override string GetDetailsString()
-    {
-        return "";
-    }
+
     public override string GetStringRepresentation()
     {
         return "";

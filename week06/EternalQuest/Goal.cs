@@ -49,9 +49,21 @@ public abstract class Goal
     }
 
     // Methods
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
-    public abstract string GetDetailsString();
+    public virtual string GetDetailsString()
+    {
+        string check = "";
+        if (IsComplete() == false)
+        {
+            check = " ";
+        }
+        else
+        {
+            check = "X";
+        }
+        return ($"[{check}]  {GetName()} ({GetDescription()})");
+    }
     public abstract string GetStringRepresentation();
 }
 // End Goal.cs

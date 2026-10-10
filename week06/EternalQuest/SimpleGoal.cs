@@ -10,33 +10,27 @@ public class SimpleGoal : Goal
     // Constructors
     public SimpleGoal(string name, string description, int points) : base(name, description, points)
     {
-
+        _isComplete = false;
     }
 
-    // Getters and Setters
-    public bool GetIsComplete()
+    // Methods
+    public override int RecordEvent()
+    {
+        if (_isComplete == true)
+        {
+            return 0;
+        }
+        else
+        {
+            _isComplete = true;
+            return GetPoints();
+        }
+    }
+    public override bool IsComplete()
     {
         return _isComplete;
     }
 
-    public void SetIsComplete(bool complete)
-    {
-        _isComplete = complete;
-    }
-
-    // Methods
-    public override void RecordEvent()
-    {
-
-    }
-    public override bool IsComplete()
-    {
-        return true;
-    }
-    public override string GetDetailsString()
-    {
-        return "";
-    }
     public override string GetStringRepresentation()
     {
         return "";
