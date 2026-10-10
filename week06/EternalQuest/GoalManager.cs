@@ -28,14 +28,47 @@ public class GoalManager
     // Methods
     public void Start()  // This is the "main" function for this class. It is called by Program.cs, and then runs the menu loop.
     {
-        /*
-        Menu Options:\n    1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Load Goals\n    5. Record Event\n    6. Quit 
-        Select a Choice from the Menu:
-        */
+        string choice = "0";
+        while (choice != "6")
+        {
+            DisplayPlayerInfo();
+            Console.Write("Menu Options:\n    1. Create New Goal\n    2. List Goals\n    3. Save Goals\n    4. Load Goals\n    5. Record Event\n    6. Quit\nSelect a Choice from the Menu: ");
+            choice = Console.ReadLine();
+            // Console.Clear(); maybe I will keep this in 
+
+            if (choice == "1") // 1. Create New Goal
+            {
+                CreateGoal();
+            }
+            else if (choice == "2") // 2. List Goals
+            {
+                ListGoalDetails();
+            }
+            else if (choice == "3") // 3. Save Goals
+            {
+                SaveGoals();
+            }
+            else if (choice == "4") // 4. Load Goals
+            {
+                LoadGoals();
+            }
+            else if (choice == "5") // 5. Record Event
+            {
+                RecordEvent();
+            }
+            else if (choice == "6") // 6. Quit\
+            {
+                Console.WriteLine("\nThank you have a nice day!");
+            }
+            else // Wrong input
+            {
+                Console.WriteLine("\nI'm sorry that was an invalid response. Please select 1, 2, 3, 4, 5, or 6.\n"); 
+            }
+        }
     }
     public void DisplayPlayerInfo()   // Displays the players current score.
     {
-        //You have {} points. 
+        Console.WriteLine($"\nYou Have {GetScore()} Points\n");
     }
     public void ListGoalNames()   // Lists the names of each of the goals.
     {
