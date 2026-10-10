@@ -1,3 +1,4 @@
+// (EternalQuest) Program.cs
 using System;
 
 class Program
@@ -7,3 +8,4 @@ class Program
         Console.WriteLine("Hello World! This is the EternalQuest Project.");
     }
 }
+// End (EternalQuest) Program.cs
