@@ -33,7 +33,7 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{GetType().Name}~{GetName()}~{GetDescription()}~{GetPoints()}~{IsComplete()}";    
     }
 }
 // End SimpleGoal.cs

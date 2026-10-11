@@ -87,7 +87,7 @@ public class GoalManager
         foreach (Goal goal in _goals)
         {
             counter++;
-            Console.WriteLine($"    {counter}. {goal.GetDetailsString()}");
+            Console.WriteLine($"    {counter}. {goal.GetStringRepresentation()}");
         }
     }
     public void CreateGoal()   // Asks the user for the information about a new goal.Then, creates the goal and adds it to the list.
@@ -140,7 +140,7 @@ public class GoalManager
             {
                 Console.WriteLine("Error: That was not a valid integer.");
             }
-            Goal newChecklistGoal = new ChecklistGoal(name, description, points, target, bonus);
+            Goal newChecklistGoal = new ChecklistGoal(name, description, points, bonus, target);
             _goals.Add(newChecklistGoal);
         }
     }
@@ -148,7 +148,7 @@ public class GoalManager
     {
         ListGoalNames();
 
-        Console.Write("Which goal did you accomplish ?");
+        Console.Write("Which goal did you accomplish? ");
         int finishedGoal = int.Parse(Console.ReadLine());
         int goalIndex = finishedGoal - 1;
         Goal chosenGoal = _goals[goalIndex];

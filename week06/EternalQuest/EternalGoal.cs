@@ -26,7 +26,7 @@ public class EternalGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{GetType().Name}~{GetName()}~{GetDescription()}~{GetPoints()}";
     }
 }
 // End EternalGoal.cs

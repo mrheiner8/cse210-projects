@@ -5,12 +5,13 @@ using System;
 public class ChecklistGoal : Goal
 {
     // Member variables
-    private int _amountCompleted;
-    private int _target;
     private int _bonus;
+    private int _target;
+    private int _amountCompleted;
+   
 
     // Constructors
-    public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
+    public ChecklistGoal(string name, string description, int points, int bonus, int target) : base(name, description, points)
     {
         _target = target;
         _bonus = bonus;
@@ -85,7 +86,7 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{GetType().Name}~{GetName()}~{GetDescription()}~{GetPoints()}~{GetBonus()}~{GetTarget()}~{GetAmountCompleted()}";
     }
 
     public override string GetDetailsString()
