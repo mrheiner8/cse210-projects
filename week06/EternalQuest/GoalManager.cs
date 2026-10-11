@@ -122,7 +122,7 @@ public class GoalManager
         }
         else if (choice == "3") // 3. Checklist Goals
         {
-            Console.Write("How many times does this goal need to be accomplished for a bonus?  (Int input)");
+            Console.Write("How many times does this goal need to be accomplished for a bonus? ");
             if (int.TryParse(Console.ReadLine(), out int target))
             {
                 // 
@@ -131,7 +131,7 @@ public class GoalManager
             {
                 Console.WriteLine("Error: That was not a valid integer.");
             }
-            Console.Write("What is the bonus for accomplishing it that many times? (Int input)");
+            Console.Write("What is the bonus for accomplishing it that many times? ");
             if (int.TryParse(Console.ReadLine(), out int bonus))
             {
                 // 

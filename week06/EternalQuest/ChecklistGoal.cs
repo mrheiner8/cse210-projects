@@ -14,6 +14,7 @@ public class ChecklistGoal : Goal
     {
         _target = target;
         _bonus = bonus;
+        _amountCompleted = 0;
     }
 
     // Getters and Setters
@@ -50,16 +51,46 @@ public class ChecklistGoal : Goal
     // Methods
     public override int RecordEvent()
     {
-        return 0;
+        
+        if (IsComplete())
+        {
+            return 0;
+        }
+        else
+        {
+            _amountCompleted++;
+        }
+
+
+        if (_amountCompleted == _target)
+        {
+            return GetPoints() + GetBonus();
+        }
+        else
+        {
+            return GetPoints();
+        }
     }
     public override bool IsComplete()
     {
-        return true;
+        if (_amountCompleted >= _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override string GetStringRepresentation()
     {
         return "";
+    }
+
+    public override string GetDetailsString()
+    {
+        return $"{base.GetDetailsString()} --Currently Completed: {_amountCompleted} of {_target}";
     }
 }
 // End ChecklistGoal.cs
