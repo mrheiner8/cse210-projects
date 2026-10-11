@@ -72,7 +72,13 @@ public class GoalManager
     }
     public void ListGoalNames()   // Lists the names of each of the goals.
     {
-        //The Goals are:\n    1. { name of goal input}\n   2. { name of goal input}\n    3. { name of goal input}
+        Console.WriteLine("The Goals are:"); 
+        int counter = 0;
+        foreach (Goal goal in _goals)
+        {
+            counter++;
+            Console.WriteLine($"    {counter}. {goal.GetName()}");
+        }
     }
     public void ListGoalDetails()  // Lists the details of each goal (including the checkbox of whether it is complete).
     {
@@ -81,7 +87,7 @@ public class GoalManager
         foreach (Goal goal in _goals)
         {
             counter++;
-            Console.WriteLine($"   {counter}. {goal.GetDetailsString()}");
+            Console.WriteLine($"    {counter}. {goal.GetDetailsString()}");
         }
     }
     public void CreateGoal()   // Asks the user for the information about a new goal.Then, creates the goal and adds it to the list.
@@ -140,17 +146,17 @@ public class GoalManager
     }
     public void RecordEvent()   // Asks the user which goal they have done and then records the event by calling the RecordEvent method on that goal.
     {
-        /*
-        The Goals are:
-        1. { name of goal input}
-        2. { name of goal input}
-        3. { name of goal input}
-        Which gold did you accomplish ? 2
-        Congratulations! You have earned { int input}
-        points.
-        You now have { int input}
-        points.
-        */
+        ListGoalNames();
+
+        Console.Write("Which goal did you accomplish ?");
+        int finishedGoal = int.Parse(Console.ReadLine());
+        int goalIndex = finishedGoal - 1;
+        Goal chosenGoal = _goals[goalIndex];
+        int pointsEarned = chosenGoal.RecordEvent();
+        
+        Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+        _score += pointsEarned;
+        Console.WriteLine($"You now have {_score} points.");
     }
     public void SaveGoals()  // Saves the list of goals to a file.
     {

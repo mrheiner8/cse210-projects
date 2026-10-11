@@ -17,7 +17,7 @@ public class EternalGoal : Goal
     // Methods
     public override int RecordEvent()
     {
-        return 0;
+        return GetPoints();
     }
     public override bool IsComplete()
     {
