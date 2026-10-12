@@ -21,11 +21,6 @@ public class GoalManager
         return _score;
     }
 
-    public void SetAmountCompleted(int score)
-    {
-        _score = score;
-    }
-
     // Methods
     public void Start()  // This is the "main" function for this class. It is called by Program.cs, and then runs the menu loop.
     {
@@ -35,7 +30,7 @@ public class GoalManager
             DisplayPlayerInfo();
             Console.Write("Menu Options:\n    1. Create New Goal\n    2. List Goals\n    3. Save Goals\n    4. Load Goals\n    5. Record Event\n    6. Quit\nSelect a Choice from the Menu: ");
             choice = Console.ReadLine();
-            // Console.Clear(); maybe I will keep this in 
+            Console.Clear(); 
 
             if (choice == "1") // 1. Create New Goal
             {
@@ -57,7 +52,7 @@ public class GoalManager
             {
                 RecordEvent();
             }
-            else if (choice == "6") // 6. Quit\
+            else if (choice == "6") // 6. Quit
             {
                 Console.WriteLine("\nThank you have a nice day!");
             }
@@ -183,27 +178,66 @@ public class GoalManager
         string fileName = Console.ReadLine();
 
         string[] lines = System.IO.File.ReadAllLines(fileName);
+        string scoreLine = lines[0];
+        int loadScore = int.Parse(scoreLine);
+        _score = loadScore;
 
-        _entries.Clear();
+        _goals.Clear();
 
-        foreach (string line in lines)
+
+        for (int lineNumber = 1; lineNumber < lines.Length; lineNumber++)
         {
+            string line = lines[lineNumber];
             string[] parts = line.Split("~");
 
             string loadType = parts[0];
-            string loadName = parts[1];
-            string loadDescription = parts[2];
-            string loadPoints = parts[3];
-            string loadBonus = parts[4];
-            string loadTarget = parts[5];
-            string loadAmountCompleted = parts[6];
 
+            if (loadType == "EternalGoal")
+            {
+                string loadName = parts[1];
+                string loadDescription = parts[2];
 
-            Entry myEntry = new Entry(loadDate, loadPromptText, loadEntryText);
-            AddEntry(myEntry);
+                string linePoints = parts[3];
+                int loadPoints = int.Parse(linePoints);
+
+                EternalGoal loadEternalGoal = new EternalGoal(loadName, loadDescription, loadPoints);
+                _goals.Add(loadEternalGoal);
+            }
+            else if (loadType == "SimpleGoal")
+            {
+                string loadName = parts[1];
+                string loadDescription = parts[2];
+
+                string linePoints = parts[3];
+                int loadPoints = int.Parse(linePoints);
+
+                string lineIsComplete = parts[4];
+                bool loadIsComplete = bool.Parse(lineIsComplete);
+
+                SimpleGoal loadSimpleGoal = new SimpleGoal(loadName, loadDescription, loadPoints, loadIsComplete);
+                _goals.Add(loadSimpleGoal);
+            }
+            else if (loadType == "ChecklistGoal")
+            {
+                string loadName = parts[1];
+                string loadDescription = parts[2];
+
+                string linePoints = parts[3];
+                int loadPoints = int.Parse(linePoints);
+
+                string lineBonus = parts[4];
+                int loadBonus = int.Parse(lineBonus);
+
+                string lineTarget = parts[5];
+                int loadTarget = int.Parse(lineTarget);
+
+                string lineAmountCompleted = parts[6];
+
+                int loadAmountCompleted = int.Parse(lineAmountCompleted);
+                ChecklistGoal loadChecklistGoal = new ChecklistGoal(loadName, loadDescription, loadPoints, loadBonus, loadTarget, loadAmountCompleted);
+                _goals.Add(loadChecklistGoal);
+            }
         }
-
     }
-
 }
 // End GoalManager.cs

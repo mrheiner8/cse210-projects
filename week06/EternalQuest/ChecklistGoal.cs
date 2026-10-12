@@ -8,7 +8,7 @@ public class ChecklistGoal : Goal
     private int _bonus;
     private int _target;
     private int _amountCompleted;
-   
+
 
     // Constructors
     public ChecklistGoal(string name, string description, int points, int bonus, int target) : base(name, description, points)
@@ -16,6 +16,12 @@ public class ChecklistGoal : Goal
         _target = target;
         _bonus = bonus;
         _amountCompleted = 0;
+    }
+    public ChecklistGoal(string name, string description, int points, int bonus, int target,int amountCompleted) : base(name, description, points)
+    {
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = amountCompleted;
     }
 
     // Getters and Setters

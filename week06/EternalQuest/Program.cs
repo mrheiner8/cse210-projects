@@ -7,9 +7,9 @@ class Program
     {
         Console.WriteLine("Hello World! This is the EternalQuest Project.");
 
-        GoalManager newStart = new GoalManager(); // *** new start is a place holder Rename later ***
+        GoalManager quest = new GoalManager(); // *** new start is a place holder Rename later ***
 
-        newStart.Start();
+        quest.Start();
     }
 }
 // End (EternalQuest) Program.cs
