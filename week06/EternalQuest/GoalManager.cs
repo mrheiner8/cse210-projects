@@ -1,5 +1,6 @@
 // GoalManager.cs
 using System;
+using System.IO;
 
 // Create a class (custom data types) to use in Program
 public class GoalManager
@@ -72,7 +73,7 @@ public class GoalManager
     }
     public void ListGoalNames()   // Lists the names of each of the goals.
     {
-        Console.WriteLine("The Goals are:"); 
+        Console.WriteLine("The Goals are:");
         int counter = 0;
         foreach (Goal goal in _goals)
         {
@@ -87,7 +88,7 @@ public class GoalManager
         foreach (Goal goal in _goals)
         {
             counter++;
-            Console.WriteLine($"    {counter}. {goal.GetStringRepresentation()}");
+            Console.WriteLine($"    {counter}. {goal.GetDetailsString()}");
         }
     }
     public void CreateGoal()   // Asks the user for the information about a new goal.Then, creates the goal and adds it to the list.
@@ -153,19 +154,54 @@ public class GoalManager
         int goalIndex = finishedGoal - 1;
         Goal chosenGoal = _goals[goalIndex];
         int pointsEarned = chosenGoal.RecordEvent();
-        
+
         Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
         _score += pointsEarned;
         Console.WriteLine($"You now have {_score} points.");
     }
     public void SaveGoals()  // Saves the list of goals to a file.
     {
-        //What is the file name for the goal file? (input) goals.txt
+        DisplayPlayerInfo();
+        Console.Write("What is the file name for the goal file? ");
+        string fileName = Console.ReadLine();
 
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine(GetScore());
+            foreach (Goal goalEntry in _goals)
+            {
+                outputFile.WriteLine(goalEntry.GetStringRepresentation());
+            }
+        }
+
+        Console.WriteLine($"\nSaving to '{fileName}'");
     }
+
     public void LoadGoals()  // Loads the list of goals from a file.
     {
-        //What is the file name for the goal file? (input) goals.txt
+        Console.Write("What is the file name for the goal file? ");
+        string fileName = Console.ReadLine();
+
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        _entries.Clear();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("~");
+
+            string loadType = parts[0];
+            string loadName = parts[1];
+            string loadDescription = parts[2];
+            string loadPoints = parts[3];
+            string loadBonus = parts[4];
+            string loadTarget = parts[5];
+            string loadAmountCompleted = parts[6];
+
+
+            Entry myEntry = new Entry(loadDate, loadPromptText, loadEntryText);
+            AddEntry(myEntry);
+        }
 
     }
 
