@@ -20,17 +20,14 @@ public abstract class Activity
     {
         return _date;
     }
-
     public void SetDate(string date)
     {
         _date = date;
     }
-
     public double GetMinutes()
     {
         return _minutes;
     }
-
     public void SetMinutes(double minutes)
     {
         _minutes = minutes;
@@ -40,10 +37,9 @@ public abstract class Activity
     public abstract double Distance();
     public abstract double Speed();
     public abstract double Pace();
-
     public string GetSummary()
     {
-        return ($"{GetDate()} {GetType()} ({GetMinutes():f2})- Distance {Distance():f2} Miles, Speed {Speed():f2} mph, Pace {Pace():f2} min per mile ");
+        return ($"{GetDate()} ~ {GetType()}: ({GetMinutes():f2} min) - Distance {Distance():f2} Miles, Speed {Speed():f2} mph, Pace {Pace():f2} min per mile");
     }
 }
 // End Activity.cs
